@@ -155,6 +155,62 @@ Boolean {true}
   
   ### void 123 // 永远返回 undefined
   
+  ## var 语句
+  
+  ```js
+function foo(){
+	var a = b = 1;
+}
+foo();
+console.log(a); // 报错
+console.log(b); // 1
+  
+  ```
+  
+  ## 异常捕获
+  
+  ```js
+  try {
+    // 尝试执行
+  }
+  catch(e){
+    // try 中的语句报错在此处捕获异常
+  }
+  finally{
+    // 一定会执行
+  }
+  ```
+  
+  ## 函数
+  
+ ```js
+ 
+function fd (){} // 函数声明，可以在声明前调用
+
+var fe = function(){}  // 函数表达式，不可以在声明前调用
+ 
+ ```
+ 
+ ## for in 语句
+ 
+ 1.顺序不确定
+ 
+ 2. enumweable 为false 时不会出现
+ 
+ 3. 原型链上有enumweable 为true时也会出现
+ 
+ ## switch case
+ 
+ switch(val){
+  case 1: // val为1或者2执行
+  case 2:
+   console.log(12);
+   break;
+ }
+ 
+ ## 
+ 
+  
   
   
   
