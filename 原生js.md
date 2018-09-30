@@ -221,7 +221,63 @@ var fe = function(){}  // 函数表达式，不可以在声明前调用
  禁止8进制
  
  
- ## 对象啊  
+ ## 对象
+ 
+ 创建对象的方式
+ 
+ 1.对象字面量
+ 
+ ```js
+ var obj = {
+ 	x:1,
+	y:2,
+	0:{
+		z:3
+	}
+ }
+ 
+ ```
+ 
+ 2. new 构造器
+ 
+ ```js
+ 
+function foo(){}
+undefined
+foo.prototype.z = 3
+3
+var obj = new foo();
+undefined
+obj.x = 1;
+1
+obj.x
+1
+obj.z
+3
+obj.__proto__ == foo.prototype
+true
+foo.__proto__ == Function.prototype
+true
+'z' in obj
+true
+obj.hasOwnProperty('z')
+false
+ ```
+ 
+ 3. Object.create({x:1})
+ 
+ ```js
+var obj = Object.create({x:1});
+undefined
+obj.x
+1
+obj.__proto__
+{x: 1}
+ ```
+ 
+ 
+ 
+ 
   
   
   
