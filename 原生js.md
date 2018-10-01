@@ -155,7 +155,7 @@ Boolean {true}
   
   2.然后让这个空对象的__proto__指向函数的原型prototype
 
-  3.将对象作为函数的this传进去，如果return 出来东西是对象的话就直接返回 return 的内容，没有的话就返回创建的这个对象
+  3.将对象作为函数的this传进去，如果return 出来东西是对象的话就直接返回 return 的内容，没有的话就返回创建的这个对象this
   
   obj.hasOwnProperty('x') // 判断 属性是他自己的，还是原型链上的
   
@@ -692,6 +692,50 @@ true
 
 ```
 
+
+## 函数
+
+### 创建方式
+
+```
+// 函数声明
+
+// 会变量提升
+
+function add(){
+
+}
+
+// 函数表达式
+
+// 变量的值（函数体）不会提升
+
+var add = function(){
+}
+
+// 立即执行函数表达式
+(function(){
+	// do sth
+})()
+
+return function(){
+
+}
+// 命名式函数表达式
+var add = function foo (a,b){
+
+}
+
+// 函数构造器
+var func = new Function('a','b','console.log(a+b)');
+undefined
+func(1,2)
+3
+undefined
+
+```
+
+### this
 
 
  
