@@ -267,13 +267,151 @@ false
  3. Object.create({x:1})
  
  ```js
-var obj = Object.create({x:1});
+var obj = Object.create({x:1}); // 新创建对象的原型指向传入的参数
 undefined
 obj.x
 1
 obj.__proto__
 {x: 1}
  ```
+ 
+ ### __proto__ protpyupe constructor 
+ 
+ ```js
+function foo(){}
+undefined
+var a = new foo()
+undefined
+a.__proto__ == foo.prototype // new出来的实例对象其 __proto__ 指向其构造函数的prototype
+// a.__proto__ 和 foo.prototype 指向同一个对象，这个对象有一个 constructor 属性，其指向构造函数foo本身。所以上面的也可以这样写：
+a.__proto__ == a.__proto__.constructor.prototype 
+a.__proto__ === a.constructor.prototype // 这里a本身是没有constructor这个属性的，所以会访问a.__proto__.constructor
+ ```
+ 
+ ## js 属性操作
+ 
+ ### 属性读写
+ 
+ ```js
+var obj = {x:1,y:2}
+undefined
+obj.x
+1
+obj["y"]
+2
+for (var p in obj){
+  console.log(obj[p]);//可能会遍历出原型链上的属性，顺序不确定
+} 
+ ```
+ ```js
+ for (var p in obj){
+    
+ }
+ 
+ ```
+ ### 读写异常
+ 
+ ```js
+ var obj = {x:1}
+undefined
+obj.y 
+undefined
+obj.y.z
+Uncaught TypeError: Cannot read property 'z' of undefined
+ ```
+
+属性读写前要判断
+
+```js
+if (obj.y){
+  obj.y.z = 6
+}
+
+
+var obj = {x:{y:1}}
+undefined
+var z = obj && obj.x && obj.x.y
+undefined
+z
+1
+```
+
+### 属性删除
+
+```
+var person = {name:'deg',age:12}
+undefined
+delete person.age
+true
+person.age
+undefined
+```
+有些属性是无法删除的，每个属性都有一个是否可配置的标签属性
+
+```
+delete Object.prototype
+false
+var descriptor = Object.getOwnPropertyDescriptor(Object,'prototype') // 获取对象某个属性的所有标签
+undefined
+descriptor.configurable // 他的是否可配置的属性为false
+false
+```
+
+用 var 定义的全局和局部变量也是不可以删除的
+
+### 检测属性是否存在
+
+```
+var cat = new Object
+undefined
+cat.legs = 4
+4
+cat.name = 'kittydkf';
+"kittydkf"
+'legs' in cat  
+true
+'toString' in cat;  // in 会向原型链上查找
+true
+cat.hasOwnProperty('legs')
+true
+cat.hasOwnProperty('toString') // 这个就不会了
+false
+
+cat.propertyIsEnumerable('legs')
+true
+cat.propertyIsEnumerable('toString')  // 查看属性是否可以被枚举
+false
+```
+
+### getter/setter
+
+```
+var obj = {
+	x:1,
+	$y:null,
+	get y(){
+		if (this.$y){return this.$y}
+		else {return '不开心呢'}
+	},
+	set y(val){
+		this.$y = val;
+	}
+	
+}
+undefined
+obj.x
+1
+obj.y
+"不开心呢"
+obj.y = '开心'
+"开心"
+obj.y
+"开心"
+```
+
+
+
+ 
  
  
  
