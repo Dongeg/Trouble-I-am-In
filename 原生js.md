@@ -42,7 +42,15 @@ undefined
 str
 "abc"
 strObj
-String {"abc"}0: "a"1: "b"2: "c"length: 3__proto__: String[[PrimitiveValue]]: "abc"
+
+String {"abc"}
+0: "a"
+1: "b"
+2: "c"
+length: 3
+__proto__: String[[PrimitiveValue]]: "abc"
+
+
 typeof strObj
 "object"
 typeof str
@@ -480,6 +488,105 @@ console.log(arr);
 //['a','ttt','b','c','d']
 ```
 
+### 数组上的方法
+
+```js
+// 数组转字符串
+var arr = [1,2,3];
+undefined
+arr.join()
+"1,2,3"
+arr.join('_')
+"1_2_3"
+
+// 字符串重复n次
+function repectString(str,n){
+	return new Array(n+1).join(str);
+}
+undefined
+repectString('我爱你',3)
+"我爱你我爱你我爱你"
+
+// 逆序
+arr.reverse();
+(3) [3, 2, 1]
+
+// 排序
+// 从小到大
+var numList = [13,45,9,11,1,123];
+undefined
+numList.sort(function(a,b){
+	return a-b;
+})
+(6) [1, 9, 11, 13, 45, 123]
+
+// 从大到小
+numList.sort(function(a,b){
+	return b-a;
+})
+(6) [123, 45, 13, 11, 9, 1]
+```
+
+```js
+var objList = [{n:11},{n:1},{n:9},{n:85},{n:36},{n:51}];
+undefined
+objList.sort(function(a,b){
+	return a.n -b.n;
+})
+(6) [{…}, {…}, {…}, {…}, {…}, {…}]
+0: {n: 1}
+1: {n: 9}
+2: {n: 11}
+3: {n: 36}
+4: {n: 51}
+5: {n: 85}
+length: 6
+__proto__: Array(0)
+
+// 数组合并
+var arr = [1,2,3];
+undefined
+var arr2 = arr.concat([1,3],4,5)
+undefined
+arr2
+(7) [1, 2, 3, 1, 3, 4, 5]
+
+// 数组截取
+
+var arr = [1,2,3,4,5,6]; // 不会对原数组进行修改
+undefined
+arr.slice(1,3)
+(2) [2, 3]
+arr
+(6) [1, 2, 3, 4, 5, 6]
+
+```
+```js
+//删除起始下标为1，长度为1的一个值(len设置1，如果为0，则数组不变)  会对原数组进行修改
+var arr = ['a','b','c','d']; 
+arr.splice(1,1); 
+console.log(arr); 
+//['a','c','d']; 
+
+//替换起始下标为1，长度为1的一个值为‘ttt'，len设置的1 
+var arr = ['a','b','c','d']; 
+arr.splice(1,1,'ttt'); 
+console.log(arr);   
+//['a','ttt','c','d'] 
+
+// 添加 ---- len设置为0，item为添加的值
+var arr = ['a','b','c','d']; 
+arr.splice(1,0,'ttt'); 
+console.log(arr);   
+//['a','ttt','b','c','d']
+```
+
+
+数组循环的方式
+
+```
+
+```
 
 
  
