@@ -582,11 +582,116 @@ console.log(arr);
 ```
 
 
-数组循环的方式
+数组迭代的方式
+
+```
+// for 循环,用于循环长度已知的数组，效率最高
+for (var i = 0;i<arr.length;i++){
+	console.log(arr[i])
+}
+// forEach() // 循环次数未知的数组
+arr.forEach(function(x,index,a){
+	console.log(x); // 当前元素
+	console.log(index);  // 索引
+	console.log(a);  // 数组
+})
+// for in  顺序不定，也可以变量对象属性
+// 提示：for...in不应该用于迭代一个 Array，其中索引顺序很重要
+for (item in arr){
+	console.log(item)
+}
+// map // 数组映射,不修改原数组
+
+arr.map(function(x){
+	return x+10;
+})
+(6) [11, 12, 13, 14, 15, 16]
+
+// filter  // 过滤出符合条件的元素
+arr.filter(function(x,i){
+	return x > 3
+})
+(3) [4, 5, 6]
+
+// 数组判断
+
+// 数组中的每个元素都符合某个条件返回true,否则返回false
+arr.every(function(x,i){
+	return x > 3
+})
+false
+
+
+// 数组中的只要有一个元素都符合某个条件返回true,否则返回false
+arr.some(function(x,i){
+	return x > 3
+})
+true
+
+// reduce reduceRight,不修改原数组
+// reduceRight 从右向左
+//reduce() 方法接收一个函数作为累加器，数组中的每个值（从左到右）开始缩减，最终计算为一个值。对空数组是不会执行回调函数的。
+
+```js
+// 求和
+var sum = arr.reduce(function(x,y){
+	return x+y; // 结过作为参数传入下一次迭代中的x
+})
+undefined
+sum
+21
+
+// 找出最大值
+
+var max = arr.reduce(function(x,y){
+	return x>y?x:y;
+})
+undefined
+max
+6
 
 ```
 
+// for of
+
+
+
 ```
+//indexOf() 方法可返回某个指定的字符串值在字符串中首次出现的位置.找不到返回-1；
+
+// 数组去重
+
+```
+function fn(arr){
+	var result = [];
+	for (var i = 0;i<arr.length;i++){
+		if(result.indexOf(arr[i]) == -1){
+			result.push(arr[i])
+		}
+	}
+	return result;
+}
+undefined
+fn(arr)
+(6) [1, 2, 3, 4, 5, 6]
+```
+// 判断是否为数组
+
+```js
+Array.isArray([])
+true
+
+[] instanceof Array
+true
+
+({}).toString.apply([])
+"[object Array]"
+
+[].constructor === Array
+true
+
+```
+
 
 
  
