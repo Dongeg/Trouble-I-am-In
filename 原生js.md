@@ -155,7 +155,7 @@ Boolean {true}
   
   2.然后让这个空对象的__proto__指向函数的原型prototype
 
-  3.将对象作为函数的this传进去，如果return 出来东西是对象的话就直接返回 return 的内容，没有的话就返回创建的这个对象this
+  3.执行构造函数中的代码，如果return 出来东西是对象的话就直接返回 return 的内容，没有的话就返回创建的这个对象this
   
   obj.hasOwnProperty('x') // 判断 属性是他自己的，还是原型链上的
   
@@ -736,6 +736,37 @@ undefined
 ```
 
 ### this
+
+全局作用域下this指向window
+
+函数中this指向调用它的对象
+
+构造函数中的 this 指向构造函数的prototype
+
+改变this的指向 call/apply/bind
+
+```js
+function add(c,d){
+	return this.a +this.b+c+d;
+}
+undefined
+var o = {a:1,b:3}
+undefined
+add.call(o,3,4)
+11
+add.apply(o,[3,4])
+11
+var g = add.bind(o) //绑定一次，多次执行
+g(6,8)
+18
+```
+
+
+
+
+
+
+
 
 
  
