@@ -584,7 +584,7 @@ console.log(arr);
 
 数组迭代的方式
 
-```
+```js
 // for 循环,用于循环长度已知的数组，效率最高
 for (var i = 0;i<arr.length;i++){
 	console.log(arr[i])
@@ -642,7 +642,7 @@ sum
 21
 
 // 找出最大值
-
+```
 var max = arr.reduce(function(x,y){
 	return x>y?x:y;
 })
@@ -661,7 +661,7 @@ max
 
 // 数组去重
 
-```
+```js
 function fn(arr){
 	var result = [];
 	for (var i = 0;i<arr.length;i++){
