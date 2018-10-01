@@ -78,6 +78,8 @@ Boolean {true}
  
  ### typeof 用于检测原始类型对象和function
  
+ 
+ ```js
  typeof 100 // 'number'
  
  ...
@@ -92,7 +94,7 @@ Boolean {true}
  
  判断null可以用严格等于
  
- 
+ ```
  
  
  ### obj instanceof Object // 用于检测对象类型，基于原型链，判断某个对象是否由某个构造函数构造
@@ -100,10 +102,14 @@ Boolean {true}
  [1,2] instanceof Array  // true
  
  ### Object.prototype.toString.apply(); // 内置对象和基本类型
+ 
+ ```
 
  Object.prototype.toString.apply([]); // "[object Array]"
  
  Object.prototype.toString.apply(function(){}); // "[object Function]"
+ 
+ ```
  
  ### constructor  // 判断他的直接父构造函数
  
@@ -113,13 +119,15 @@ Boolean {true}
  
  ### 逗号表达式
  
+ ```
   var b = (1,2,4+5)
   undefined
   b
   9
-  
+  ```
   ### delete 运算符
   
+  ```
   var obj = {x:1}
   undefined
   obj.x
@@ -129,13 +137,16 @@ Boolean {true}
   obj.x
   undefined
   
+  ```
   ### in 
   
+  ```
   window.x = 1
   1
  'x' in window
   true
   
+  ```
   ### new 运算符
   
   new执行的时候发生了什么？
@@ -796,6 +807,40 @@ currying('我爱你')
 q w e r t y 我爱你
 ```
 
+## 闭包 
+
+```html
+<!-- 点击弹出索引 -->
+<button class="btn">btn</button>
+<button class="btn">btn</button>
+<button class="btn">btn</button>
+<button class="btn">btn</button>
+<button class="btn">btn</button>
+<button class="btn">btn</button>
+<button class="btn">btn</button>
+<script>
+	var btns = document.querySelectorAll('.btn');
+	
+	// 绑定索引
+	for(var i = 0;i<btns.length;i++){
+		btns[i].index = i
+		btns[i].onclick=function(){
+			alert(this.index);
+		}
+	}
+	// 闭包
+					  				  
+	for(var i = 0;i<btns.length;i++){
+		!function(i){
+			btns[i].onclick=function(){
+			alert(i);
+		}
+		}(i)
+	}		
+</script>
+
+
+```
 
 
 
