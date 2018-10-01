@@ -745,6 +745,8 @@ undefined
 
 改变this的指向 call/apply/bind
 
+call和apply都是对函数的直接调用，而bind方法返回的仍然是一个函数，因此后面还需要调用
+
 ```js
 function add(c,d){
 	return this.a +this.b+c+d;
@@ -756,10 +758,51 @@ add.call(o,3,4)
 11
 add.apply(o,[3,4])
 11
-var g = add.bind(o) //绑定一次，多次执行
-g(6,8)
+var g = add.bind(o,6) //绑定一次，多次执行,第一个参数传null或者undefined，则指向window，new的时候会失效
+g(8)
 18
 ```
+
+### arguments
+
+```js
+function foo(x,y,z){
+	return {
+		l:arguments.length, // 实参个数
+		0:arguments[0]    // 第一个参数
+	}
+}
+undefined
+foo(1,2)
+{0: 1, l: 2}
+foo.length  // 形参个数
+3
+foo.name   // 函数名
+"foo"
+```
+
+bind 可以做函数柯里化
+
+柯里化是把接受多个参数的函数变换成接受一个单一参数（最初函数的第一个参数）的函数，并且返回接受余下的参数而且返回结果的新函数的技术
+
+```js
+function foo(a,b,c,d,e,f,g){
+	console.log(a,b,c,d,e,f,g)
+}
+undefined
+var currying = foo.bind(null,'q','w','e','r','t','y');
+undefined
+currying('我爱你')
+q w e r t y 我爱你
+```
+
+
+
+
+
+
+
+
 
 
 
