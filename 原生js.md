@@ -410,6 +410,77 @@ obj.y
 ```
 
 
+## 数组
+
+### 数组创建
+
+```
+var arr = [1,23,45] // 字面量
+
+var arr2 = new Array()  // new 关键字可以省略
+
+```
+
+### 数组读写
+
+```
+// 增
+var arr = [];
+undefined
+arr[0] = 0
+0
+arr.push(2)
+2
+arr[arr.length] = 3
+3
+arr.unshift(1)
+4
+arr
+(4) [1, 0, 2, 3]
+
+// 删除
+delete arr[0]
+true
+arr
+(4) [empty, 0, 2, 3]
+
+arr.length -= 1
+3
+arr
+(3) [empty, 0, 2]
+
+arr.pop()
+2
+arr
+(2) [empty, 0]
+
+arr.shift()
+undefined
+arr
+[0]
+```
+
+```js
+//删除起始下标为1，长度为1的一个值(len设置1，如果为0，则数组不变) 
+var arr = ['a','b','c','d']; 
+arr.splice(1,1); 
+console.log(arr); 
+//['a','c','d']; 
+
+//替换起始下标为1，长度为1的一个值为‘ttt'，len设置的1 
+var arr = ['a','b','c','d']; 
+arr.splice(1,1,'ttt'); 
+console.log(arr);   
+//['a','ttt','c','d'] 
+
+// 添加 ---- len设置为0，item为添加的值
+var arr = ['a','b','c','d']; 
+arr.splice(1,0,'ttt'); 
+console.log(arr);   
+//['a','ttt','b','c','d']
+```
+
+
 
  
  
