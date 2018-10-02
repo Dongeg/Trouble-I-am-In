@@ -866,9 +866,40 @@ console.log(data.getx());
 
 eval作用域
 
+## oop
+
 ```js
+      function Person (name,age){
+          this.name = name;
+          this.age = age;
+      }
+      Person.prototype.hi = function(){
+          console.log(' i am' + this.name +this.age);
+      }
+      Person.prototype.EYE = 2; 
+      Person.prototype.walk = function(){
+        console.log(this.name + 'is working');
+      } 
+      function Student(name,age,className){
+          Person.call(this,name,age);
+          this.className = className;
+      }
+      // 如果直接Student.prototype = Person.prototype;则如果在 Student.prototype上修改Person.prototype也会受影响
+      Student.prototype = Object.create(Person.prototype); 
+      Student.prototype.constructor = Student;
+      //重写原型链上的hi方法
+      Student.prototype.hi = function(){
+        console.log(' i am' + this.name +this.age + this.className);
+      }
+      Student.prototype.learn = function(){
+        console.log(this.name +'is learning');
+      }
 
-
+      var xiaoming = new Student('xiaoming',18,'nb');
+      xiaoming.hi();
+      xiaoming.EYE;
+      xiaoming.walk();
+      xiaoming.learn();
 
 ```
 
