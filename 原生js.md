@@ -842,6 +842,40 @@ q w e r t y 我爱你
 
 ```
 
+// 创建局部作用域
+
+```js
+
+(function(){
+var $x = 1;
+var local = {};
+local.getx =function(){
+	return $x;
+}
+window.data = local;
+})() 
+console.log(data.getx());
+
+```
+
+## js作用域
+
+全局作用域
+
+函数作用域
+
+eval作用域
+
+```js
+
+
+
+```
+
+
+
+
+
 
 
 
