@@ -903,6 +903,56 @@ eval作用域
 
 ```
 
+## 模拟重载
+
+```js
+      function Person (){
+          var args = arguments;
+          if (typeof args[0] === 'object' && args[0]){  // 假定只传一个参数，且类型为对象且不为null;
+            if (args[0].name){
+                this.name = args[0].name;
+            }
+            if (args[0].age){
+                this.age = args[0].age;
+            }
+          }
+          else if (typeof args[0] === 'string'){
+            if (args[0]){
+                this.name = args[0];
+            }
+            if (args[1]){
+                this.age = args[1];
+            }
+          }
+      }
+      Person.prototype.printMsg = function(){
+          console.log( this.name + ' ' + this.age )
+      }
+
+      var p1 = new Person('xiaoming',18);
+      p1.printMsg(); // xiaoming 18
+      var p1 = new Person({name:'xiaoming',age:18});
+      p1.printMsg(); // xiaoming 18
+
+```
+
+### 链式调用
+
+```js
+
+      function classManager(){};
+      classManager.prototype.addClass = function (str){
+          console.log(str);
+          return this;  // 通过返回this实现
+      }
+      var manager = new classManager();
+      manager.addClass('classA').addClass('classB').addClass('classC');
+      
+      classA
+      classB
+      classC
+```
+
 
 
 
