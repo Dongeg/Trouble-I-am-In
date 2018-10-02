@@ -44,3 +44,20 @@ width: 1536  // 屏幕宽度
 ```
 
 ## DOM 文档对象模型
+
+```js
+
+/* dom节点获取 */
+document.getElementById('id');
+document.getElementsByClassName('className') // ie9+
+document.getElementsByName('name'); // 元素的 name 属性
+document.getElementsByTagName('p') // 节点名
+document.querySelector('.class') // 返回匹配指定选择器的第一个元素
+document.querySelectorAll('.class') // 返回匹配指定选择器
+
+elementNode.getAttribute(name) // 通过元素节点的属性名称获取属性的值
+
+elementNode.setAttribute(name,value) // 增加一个指定名称和值的新属性，或者把一个现有的属性设定为指定的值
+
+
+```
