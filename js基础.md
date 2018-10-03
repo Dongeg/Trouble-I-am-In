@@ -59,5 +59,92 @@ elementNode.getAttribute(name) // 通过元素节点的属性名称获取属性�
 
 elementNode.setAttribute(name,value) // 增加一个指定名称和值的新属性，或者把一个现有的属性设定为指定的值
 
+// 节点属性
+
+elementNode.nodeName // 节点名称
+
+1. 元素节点的 nodeName 与标签名相同
+2. 属性节点的 nodeName 是属性的名称
+3. 文本节点的 nodeName 永远是 #text
+4. 文档节点的 nodeName 永远是 #document
+
+elementNode.nodeValue // 节点值
+
+1. 元素节点的 nodeValue 是 undefined 或 null
+2. 文本节点的 nodeValue 是文本自身
+3. 属性节点的 nodeValue 是属性的值
+
+elementNode.nodeType // 节点类型
+
+  元素          1
+  属性          2
+  文本          3
+  注释          8
+  文档          9
+
+elementNode.childNodes // 访问子节点childNodes,
+
+节点之间的空白符，在firefox、chrome、opera、safari浏览器是文本节点，ie不是
+
+elementNode.firstChild  等同于 elementNode.childNodes[0]
+
+elementNode.lastChild
+
+elementNode.parentNode //获取指定节点的父节点,父节点只能有一个
+
+nodeObject.nextSibling // 下一个节点
+
+nodeObject.previousSibling  // 上一个节点 可能获取到空白文本节点
+
+// 跳过空白文本节点
+function get_nextSibling(n){
+    var x=n.nextSibling;
+    while (x && x.nodeType!=1){
+        x=x.nextSibling;
+    }
+    return x;
+}
+
+elementNode.appendChild(newnode)  // 在指定节点的最后一个子节点列表之后添加一个新的子节点
+
+    var otest = document.getElementById("test");
+    var php=document.createElement("li");
+    php.innerHTML="php";
+    otest.appendChild(php)
+
+
+elementNode.insertBefore(newnode)  // 可在已有的子节点前插入一个新的子节点。
+
+nodeObject.removeChild(node) // 删除子节点
+
+node.replaceChild (newnode,oldnew )  // replaceChild 实现子节点(对象)的替换。返回被替换对象的引用
+
+    function replaceMessage(){ 
+    var oldnode=document.getElementById("oldnode");
+    var newnode=document.createElement("i");
+    newnode.innerHTML="javascript";
+    oldnode.parentNode.replaceChild(newnode,oldnode);
+    }    
+
+document.createElement(tagName) // createElement()方法可创建元素节点。此方法可返回一个 Element 对象
+
+   var body = document.body; 
+   var input = document.createElement("input");  
+   input.type = "button";  
+   input.value = "创建一个按钮";  
+   body.appendChild(input);  
+   
+   
+   
+   var body= document.body;             
+   var btn = document.createElement("input");  
+   btn.setAttribute("type", "text");  
+   btn.setAttribute("name", "q");  
+   btn.setAttribute("value", "使用setAttribute");  
+   btn.setAttribute("onclick", "javascript:alert('This is a text!');");       
+   body.appendChild(btn);  
+   
+document.createTextNode(data) // document.createTextNode(data) 
+
 
 ```
