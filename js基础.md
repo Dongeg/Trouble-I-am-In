@@ -147,4 +147,7 @@ document.createElement(tagName) // createElement()方法可创建元素节点。
 document.createTextNode(data) // document.createTextNode(data) 
 
 
+
+
+
 ```
