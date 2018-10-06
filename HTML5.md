@@ -37,11 +37,18 @@
 
 ```
 
-### Web 存储
+### Web 存储 localStorage sessionStorage
 
 ```js
-
-
+localStorage.setItem('key','1');  // 设置
+undefined
+localStorage.getItem('key');   // 获取
+"1"
+localStorage.removeItem('key'); // 删除
+undefined
+localStorage.getItem('key');   
+null
+localStorage.clear()  // 清除全部
 
 ```
 
