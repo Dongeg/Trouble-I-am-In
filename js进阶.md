@@ -309,6 +309,35 @@ a.__proto__ === a.constructor.prototype // 这里a本身是没有constructor这�
  
  ## js 属性操作
  
+ ### Obeject.defineProperty()
+ 
+ Object.defineProperty() 方法会直接在一个对象上定义一个新属性，或者修改一个对象的现有属性， 并返回这个对象。
+ 
+ Object.defineProperty(obj, prop, descriptor)
+ 
+obj        要在其上定义属性的对象。
+
+prop       要定义或修改的属性的名称。
+
+descriptor 将被定义或修改的属性描述符。
+ 
+ ```js
+ Object.defineProperty(obj, "key", {
+  enumerable: false,// 当且仅当该属性的enumerable为true时，该属性才能够出现在对象的枚举属性中。默认为 false。
+  configurable: false,  // 当且仅当该属性的 configurable 为 true 时，该属性描述符才能够被改变，同时该属性也能从对应的对象上被删除。默认为 false
+  writable: false,// 当且仅当该属性的writable为true时，value才能被赋值运算符改变。默认为 false。
+  value: "static"//该属性对应的值。可以是任何有效的 JavaScript 值（数值，对象，函数等）。默认为 undefined。
+  get : function(){
+    return bValue;
+  },
+  set : function(newValue){
+    bValue = newValue;
+  },
+});
+ 
+ 
+ ```
+ 
  ### 属性读写
  
  ```js
