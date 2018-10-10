@@ -689,13 +689,14 @@ sum
 21
 
 // 找出最大值
-```
 var max = arr.reduce(function(x,y){
 	return x>y?x:y;
 })
 undefined
 max
 6
+```
+
 
 ```
 
