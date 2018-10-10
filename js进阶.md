@@ -293,6 +293,13 @@ obj.x
 obj.__proto__
 {x: 1}
  ```
+ ### 获取对象原型链
+ 
+ ```js
+// es5提供的标准方法
+var a = new Object({key:123})
+Object.getPrototypeOf(a)
+ ```
  
  ### __proto__ protpyupe constructor 
  
