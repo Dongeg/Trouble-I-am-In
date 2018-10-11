@@ -39,7 +39,7 @@ orientation: ScreenOrientation {angle: 0, type: "landscape-primary", onchange: n
 pixelDepth: 24
 width: 1536  // 屏幕宽度
 
-
+window.devicePixelRatio  // 获取dpr
 
 ```
 
