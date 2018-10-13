@@ -204,3 +204,9 @@ var date = new Date('2014-04-23 18:55:49:123');
     console.log(time3);//1398250549000
 // 　第一、第二种：会精确到毫秒,第三种：只能精确到秒，毫秒用000替代    
 ```
+// js 修改样式
+
+```js
+node.style.width = '15px';
+node.style.cssText='width:15px'
+```
