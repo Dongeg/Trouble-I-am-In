@@ -695,6 +695,10 @@ var max = arr.reduce(function(x,y){
 undefined
 max
 6
+
+
+var max = Math.max.apply(null,arr);
+
 ```
 
 
