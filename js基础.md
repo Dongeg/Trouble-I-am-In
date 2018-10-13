@@ -41,6 +41,11 @@ width: 1536  // 屏幕宽度
 
 window.devicePixelRatio  // 获取dpr
 
+
+
+
+
+
 ```
 
 ## DOM 文档对象模型
@@ -146,6 +151,27 @@ document.createElement(tagName) // createElement()方法可创建元素节点。
    
 document.createTextNode(data) // document.createTextNode(data) 
 
+
+// 浏览器窗口可视区域大小
+winW=document.documentElement.clientWidth || document.body.clientWidth
+winH=document.documentElement.clientHeight || document.body.clientHeight
+
+//scrollHeight 是网页内容实际高度，可以小于 clientHeight
+var w=document.documentElement.scrollWidth|| document.body.scrollWidth;
+var h=document.documentElement.scrollHeight|| document.body.scrollHeight;
+
+// 元素宽度和高度，包括混动条
+nodeElement.offsetWidth
+
+nodeElement.offsetHeight
+
+scrollLeft:往左滚动了多宽
+
+scrollTop:网上滚了多高。
+
+offsetLeft:距离窗口左边多宽 。
+
+offsetTop:距离窗口顶部多高 。
 ```
 
 date 相关
