@@ -31,6 +31,7 @@ HTTP/1.1协议中预留给能够将连接改为管道方式的代理服务器。
 ## 
  
 osi 参考模型
+http://img-blog.csdn.net/20180115133954601?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvY2MxOTQ5/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast
 
 <img src='https://images2015.cnblogs.com/blog/705728/201604/705728-20160424234824085-667046040.png' />
 
