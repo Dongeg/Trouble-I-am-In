@@ -94,3 +94,58 @@ HTTP/1.1协议中预留给能够将连接改为管道方式的代理服务器。
 500	Internal Server Error	服务器内部错误
 
 502	Bad Gateway	充当网关或代理的服务器，从远端服务器接收到了一个无效的请求
+
+## 跨域
+
+cors 跨域请求
+
+```
+1. 后端返回头信息带上 'Access-Control-Allow-Origin':'*'  指定对应的域名
+
+2.jsonp
+
+3.websoctet
+
+4.postMessage
+
+5.hash
+
+```
+## cors 预请求
+
+cors 允许的方法： get post head 这仨不需要预请求
+
+coes 允许的 Content-Type   text/plain  multipart/form-data  application/x-www-form-urlencoded 这仨不需要预请求
+
+请求头限制 也有限制  
+
+被限制的类型要想跨域就要改请求头
+
+```
+'Access-Control-Allow-Origin':'*'  指定对应的域名
+
+'Access-Control-Allow-Headers':'X-Test-Cors'
+
+'Access-Control-Allow-Methods':'PUT,Delete'
+
+'Access-Control-Max-Age':'1000'   // 1000秒内无需再次发送预请求验证
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
