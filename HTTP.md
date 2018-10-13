@@ -1,4 +1,4 @@
-HTTP请求的方法：
+## HTTP请求的方法：
 
 HTTP/1.1协议中共定义了八种方法（有时也叫“动作”），来表明Request-URL指定的资源不同的操作方式
 
@@ -27,3 +27,9 @@ Loadrunner中对应POST请求函数：web_submit_data,web_submit_form
 8、CONNECT
 HTTP/1.1协议中预留给能够将连接改为管道方式的代理服务器。
 ```
+
+## 
+ 
+osi 参考模型
+
+<img src='https://images2015.cnblogs.com/blog/983980/201611/983980-20161121173924409-1128983178.png' />
