@@ -97,7 +97,7 @@ HTTP/1.1协议中预留给能够将连接改为管道方式的代理服务器。
 
 ## 跨域
 
-cors 跨域请求
+cors 跨域请求技术
 
 ```
 1. 后端返回头信息带上 'Access-Control-Allow-Origin':'*'  指定对应的域名
@@ -113,15 +113,18 @@ cors 跨域请求
 ```
 ## cors 预请求
 
+```
+
 cors 允许的方法： get post head 这仨不需要预请求
 
 coes 允许的 Content-Type   text/plain  multipart/form-data  application/x-www-form-urlencoded 这仨不需要预请求
 
-请求头限制 也有限制  
+请求头限制
+
+被限制的请求方式或者Content-Type要先发一个预请求验证
 
 被限制的类型要想跨域就要改请求头
 
-```
 'Access-Control-Allow-Origin':'*'  指定对应的域名
 
 'Access-Control-Allow-Headers':'X-Test-Cors'
