@@ -36,4 +36,7 @@ osi 参考模型
 
 <img src='https://images2015.cnblogs.com/blog/705728/201604/705728-20160424234825491-384470376.png' />
 
+tcp/ip协议在传输层
+
+http协议在应用层
 
