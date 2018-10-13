@@ -47,5 +47,7 @@ http请求建立在tcp链接之上，一个tcp链接可以进行多次http请求
 
 <img src='https://pic2.zhimg.com/v2-c368d5cd8b80e9121621231d4bc19335_b.jpg' />
 
+<img src='https://pic1.zhimg.com/v2-ea262ece5e3a5da46ea72bcf272ce6ec_r.jpg' />
 
+<img src='https://pic2.zhimg.com/v2-2271eb84ef4f8da6b948668f2448c405_r.jpg' />
 
