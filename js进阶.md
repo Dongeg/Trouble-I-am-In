@@ -7,6 +7,11 @@ js 知识复习
  
  一种对象类型 {function array Date}
  
+Undefined类型只有一个值，即undefined。当声明的变量还未被初始化时，变量的默认值为undefined。
+ 
+Null类型也只有一个值，即null。null用来表示尚未存在的对象，常用来表示函数企图返回一个不存在的对象。
+ 
+ 
  ## js隐式转换
  
  字符串转数字 typeof ('37' - 1)   // "number"
