@@ -40,3 +40,4 @@ tcp/ip协议在传输层
 
 http协议在应用层
 
+http请求建立在tcp链接之上，一个tcp链接可以进行多次http请求
