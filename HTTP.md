@@ -252,6 +252,15 @@ http.createServer(function(req,res){
 
 ```
 
+## htttps
+
+公钥加密 
+
+传输
+
+私钥解密
+
+
 
 
 
