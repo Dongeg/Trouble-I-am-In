@@ -196,7 +196,9 @@ cookie 和session 的区别：
 4、单个cookie保存的数据不能超过4K，很多浏览器都限制一个站点最多保存20个cookie。
 
 
+## http 长连接
 
+Connection: Keep-Alive  保持tcp连接长连接，请求资源数量大的时候提高资源下载速度，因为不用重复的三次握手四次挥手，默认开启
 
 
 
