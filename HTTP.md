@@ -134,7 +134,29 @@ coes 允许的 Content-Type   text/plain  multipart/form-data  application/x-www
 'Access-Control-Max-Age':'1000'   // 1000秒内无需再次发送预请求验证
 ```
 
+## Cache-Control
 
+Cache-Control缓存控制
+
+可以设置下面的值
+
+public 所有代理服务器可缓存
+
+private 只有发起请求的浏览器可缓存
+
+no-cache 不可缓存(需要去服务端验证)
+
+no-store 不可缓存
+
+max-age = <seconds>  浏览器缓存时间
+  
+s-maxage = <seconds> 代理服务器缓存时间
+  
+max-stale = <seconds> 
+
+must-revalidate  重新验证
+
+no-transform  禁止代理服务器修改资源
 
 
 
