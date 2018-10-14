@@ -200,8 +200,35 @@ cookie 和session 的区别：
 
 Connection: Keep-Alive  保持tcp连接长连接，请求资源数量大的时候提高资源下载速度，因为不用重复的三次握手四次挥手，默认开启
 
+## 数据协商
+
+客户端期望服务器返回的数据格式
 
 
+请求
+```
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8
+Accept-Encoding: gzip, deflate, br
+Accept-Language: zh-CN,zh;q=0.9,en;q=0.8
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36
+
+
+Accept  数据类型
+
+Accept-Encoding   编码方式数据压缩算法
+
+Accept-Language   语言
+
+User-Agent  浏览器信息
+
+```
+返回
+
+```
+Content-Type: text/html;charset=utf-8
+Content-Encoding: gzip
+Content-Language: zh-CN
+```
 
 
 
