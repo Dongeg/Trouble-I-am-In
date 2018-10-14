@@ -167,7 +167,8 @@ no-transform  禁止代理服务器修改资源
 ```
 // max-age 缓存时间 
 // HttpOnly 设置了HttpOnly属性，那么通过js脚本将无法读取到cookie信息
-'Set-Cookie':['id=123;max-age=10','abc=456;HttpOnly']
+// Domain 设置域名下所有的二级域名都可以访问本条cookie
+'Set-Cookie':['id=123;max-age=10','abc=456;HttpOnly','def=12121;Domain=test.com']
 ```
 js可以通过下面来读取和设置cookie
 
@@ -182,7 +183,17 @@ document.cookie='key=value'
 
 ## session
 
+cookie 和session 的区别：
 
+1、cookie数据存放在客户的浏览器上，session数据放在服务器上。
+
+2、cookie不是很安全，别人可以分析存放在本地的COOKIE并进行COOKIE欺骗
+   考虑到安全应当使用session。
+
+3、session会在一定时间内保存在服务器上。当访问增多，会比较占用你服务器的性能
+   考虑到减轻服务器性能方面，应当使用COOKIE。
+
+4、单个cookie保存的数据不能超过4K，很多浏览器都限制一个站点最多保存20个cookie。
 
 
 
