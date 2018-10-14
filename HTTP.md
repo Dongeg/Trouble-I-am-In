@@ -144,9 +144,9 @@ public 所有代理服务器可缓存
 
 private 只有发起请求的浏览器可缓存
 
-no-cache 不可缓存(需要去服务端验证)
+no-cache 不可缓存(需要去服务端验证缓存是否可用)
 
-no-store 不可缓存
+no-store 不可缓存(不需要去服务端验证)
 
 max-age = <seconds>  浏览器缓存时间
   
@@ -158,8 +158,29 @@ must-revalidate  重新验证
 
 no-transform  禁止代理服务器修改资源
 
+设置缓存时间后之后，前端可以在构建时为文件名添加哈希值来表示缓存有无更新，从而更新缓存
+
+## cookie
+
+可以在头信息里面通过 'Set-Cookie' 为用户写入cookie
+
+```
+// max-age 缓存时间 
+// HttpOnly 设置了HttpOnly属性，那么通过js脚本将无法读取到cookie信息
+'Set-Cookie':['id=123;max-age=10','abc=456;HttpOnly']
+```
+js可以通过下面来读取和设置cookie
+
+```
+
+var ck = document.cookie
+
+document.cookie='key=value'
 
 
+```
+
+## session
 
 
 
