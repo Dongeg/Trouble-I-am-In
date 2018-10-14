@@ -213,9 +213,9 @@ Accept-Language: zh-CN,zh;q=0.9,en;q=0.8
 User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36
 
 
-Accept  数据类型
+Accept  数据类型编码格式
 
-Accept-Encoding   编码方式数据压缩算法
+Accept-Encoding   数据压缩算法
 
 Accept-Language   语言
 
@@ -228,6 +228,28 @@ User-Agent  浏览器信息
 Content-Type: text/html;charset=utf-8
 Content-Encoding: gzip
 Content-Language: zh-CN
+```
+
+## Redirect 重定向
+
+```js
+const http = require('http')
+http.createServer(function(req,res){
+    if(req.url ==='/'){
+        res.writeHead(302,{
+            'Location':'/new'
+        })
+        res.end('')
+    }
+    if(req.url ==='/new'){
+        res.writeHead(200,{
+            'content-type': 'text/html;charset=utf-8'
+        })
+        res.end('<h1>重定向</h1>')
+    }
+
+}).listen(8080)
+
 ```
 
 
