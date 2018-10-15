@@ -165,9 +165,19 @@ nodeElement.offsetWidth
 
 nodeElement.offsetHeight
 
+
+
+
+这两个属性只能用于元素设置了overflow的css样式中。否者这两个属性没有任何意义。且overflow的值不能为visible，但可以为hidden,auto,scroll的之中，但是hidden最常见。
+
 scrollLeft:往左滚动了多宽
 
-scrollTop:网上滚了多高。
+scrollTop:往上滚了多高。
+
+
+
+
+
 
 offsetLeft:距离窗口左边多宽 。
 
