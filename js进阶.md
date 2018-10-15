@@ -749,6 +749,85 @@ true
 
 ```
 
+## 数组和对象的深复制和浅复制
+
+```js
+var data = {a: 1, b: 2};
+var array = [1,2,3]; 
+// 引用复制
+
+var c = data;
+
+var array_shallow = array;
+
+
+// 数组的浅复制
+
+var array_concat = array.concat(); 
+var array_slice = array.slice();
+
+console.log(array === array_shallow); //true 
+console.log(array === array_slice); //false，“看起来”像深拷贝
+console.log(array === array_concat); //false，“看起来”像深拷贝
+
+
+// 对象浅复制
+
+// Object.assign() 方法用于将所有可枚举属性的值从一个或多个源对象复制到目标对象。它将返回目标对象。
+var data =  {
+  a: 1,
+  b: { f: { g: 1 } },
+  c: [ 1, 2, 3 ]
+};
+
+var objData = Object.assign({}, data);
+
+console.log(objData === data); //false
+console.log(objData.b.f === data.b.f); //true
+
+// 深复制
+var source = { name:"source", child:{ name:"child" } } 
+var target = JSON.parse(JSON.stringify(source));
+target.name = "target";  //改变target的name属性
+
+console.log(source.name); //source 
+console.log(target.name); //target
+target.child.name = "target child"; //改变target的child 
+console.log(source.child.name); //child 
+console.log(target.child.name); //target child
+
+
+function clone(data) {
+    if (Array.isArray(data)) {
+        let newArr = [];
+        for (let i = 0; i < data.length; i++) {
+            newArr[i] = clone(data[i]);
+        }
+
+        return newArr;
+    } else if (data instanceof Object) {
+        let obj = {};
+        for (let key in data) {
+            obj[key] = clone(data[[key]]);
+        }
+        return obj;
+    }else {
+        return data;
+    }
+}
+
+var data =  {
+    a: 1,
+    b: { f: { g: 1 } },
+    c: [ 1, 2, 3 ]
+};
+
+var objData = clone(data);
+console.log(objData === data);  //false
+console.log(objdata.b.f === data.b.f); //false
+```
+
+
 
 ## 函数
 
