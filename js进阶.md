@@ -719,6 +719,20 @@ var max = Math.max.apply(null,arr);
 // 数组去重
 
 ```js
+    function fn2(arr) {
+      let reaultObj = {}
+      let result = []
+      for (let i=0;i<arr.length;i++){
+        if(!reaultObj[arr[i]]){
+          reaultObj[arr[i]] = true
+          result.push(arr[i])
+        }
+      }
+      return result
+    }
+
+
+
 function fn(arr){
 	var result = [];
 	for (var i = 0;i<arr.length;i++){
