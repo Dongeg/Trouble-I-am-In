@@ -181,7 +181,67 @@ Boolean {true}
   
   ### this
   
-  ### void 123 // 永远返回 undefined
+  1.全局作用域下的this 指向document对象
+  
+  ```js
+  this === window // true
+  ```
+  
+  2.独立调用的函数中的this 也是指向window，严格模式下指向undefined
+  
+  ```js
+  function f1(){
+  	return this
+  }
+  f1 == window // true
+  
+  function f2(){
+  	"use strict"
+  	return this
+  }
+  f2 == undefined // true
+  
+  
+  ```
+  3.挂在对象上的方法中的this，指向该对象
+  
+  ```js
+  var a = 20;
+  var obj = {
+    a: 10,
+    c: this.a, // 非对象上的方法，也算独立调用
+    fn: function () {
+      return this.a;
+    }
+  }
+
+  console.log(obj.c); // 20
+  console.log(obj.fn()); // 10
+  ```
+  4. 对象原型链上的this，也是指向该对象
+  
+  ```js
+      var o = {
+      a:1,
+      b:2,
+      f:function () {
+        return this.a + this.b
+      }
+    }
+    var p = Object.create(o)
+    p.a = 3
+    p.b = 4
+    console.log(p.f()) // 7 找属性的时候顺着原型链向上查找，若p.a p.b 没赋值，则取o上面的
+  
+  ```
+  
+  5. 对象上get/set方法中的this 同3
+  
+  ### void 
+  
+  ```js
+  void 123 // 永远返回 undefined
+  ```
   
   ## var 语句
   
