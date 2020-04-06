@@ -165,6 +165,7 @@ Boolean {true}
   obj.hasOwnProperty('x') // 判断 属性是他自己的，还是原型链上的
   
     ```js
+    
     function Fn() {
       this.a = 1
       return {
@@ -174,8 +175,9 @@ Boolean {true}
     const fn = new Fn()
     console.log(fn.a) // undefined  如果没有return {...} 则能拿到 a
     console.log(fn.b) // 2
-
+    
   ```
+  
   
   ### this
   
