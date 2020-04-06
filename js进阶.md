@@ -156,17 +156,6 @@ Boolean {true}
   
   new执行的时候发生了什么？
   
-  ```js
-  const a = new Foo();
-  
-  // 对应伪代码
-  
-  const o = new Object();//创建了一个新的空对象o
-  o.__proto__ = Foo.prototype;//让这个o对象的` __proto__`指向构造函数的原型`prototype`
-  Foo.call(o);//this指向o对象
-  a = o;//将o对象赋给a对象
-
-  ```
   1.先创建了一个新的空对象
   
   2.然后让这个空对象的__proto__指向函数的原型prototype
@@ -174,6 +163,19 @@ Boolean {true}
   3.执行构造函数中的代码，如果return 出来东西是对象的话就直接返回 return 的内容，没有的话就返回创建的这个对象this
   
   obj.hasOwnProperty('x') // 判断 属性是他自己的，还是原型链上的
+  
+    ```js
+    function Fn() {
+      this.a = 1
+      return {
+        b:2
+      }
+    }
+    const fn = new Fn()
+    console.log(fn.a) // undefined  如果没有return {...} 则能拿到 a
+    console.log(fn.b) // 2
+
+  ```
   
   ### this
   
